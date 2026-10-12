@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: smart-weather-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/smartweather
+    username: smartweather
+    password: smartweather
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      # Phase 2: real entities (users, saved_cities, search_history).
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+app:
+  weather:
+    geocoding-url: https://geocoding-api.open-meteo.com/v1/search
+    forecast-url: https://api.open-meteo.com/v1/forecast
+    timeout-seconds: 10
+  history:
+    # Phase 3: observation snapshots for favored cities (upsert per city/day).
+    collect-fixed-rate-ms: 3600000
+    collect-initial-delay-ms: 60000
+
+logging:
+  level:
+    com.smartweather: INFO

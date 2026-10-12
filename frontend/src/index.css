@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-weather-cream text-weather-navy antialiased;
+}
+
+/* Soft sunny backdrop: cream base with faint sky/rose glows */
+.app-backdrop {
+  background:
+    radial-gradient(42rem 22rem at 12% -6%, rgba(118, 192, 236, 0.28), transparent 60%),
+    radial-gradient(38rem 20rem at 88% -4%, rgba(255, 149, 165, 0.22), transparent 60%),
+    #fff6dc;
+}
